@@ -1,7 +1,7 @@
-<div style="text-align: center;">
-    Algoritmos e Estruturas de Dados I  
-<p> Trabalho 2 – Geração Automática de Índice Remissivo
-</div>
+<p align="center">
+Algoritmos e Estruturas de Dados I <br> 
+Trabalho 2 – Geração Automática de Índice Remissivo
+</p>
 
 ## Descrição:
 
@@ -11,9 +11,9 @@ Basicamente, é necessário realizar a leitura de um arquivo texto, e trabalhar 
 texto em estruturas encadeadas para gerar o índice remissivo. A figura a seguir apresenta um exemplo dessa
 representação: as palavras estão na lista vertical em ordem alfabética crescente e à cada uma delas está associada
 uma lista das páginas onde ocorrem.
-<div style="text-align: center;">
+<p align="center">
 <img src="src/imgs/img.png">
-</div>
+</p>
 
 Ao final do processamento o programa deverá **apresentar a lista de palavras** do texto ordenadas em ordem alfabética
 crescente e apresentando as páginas onde a palavra ocorreu no texto. Para facilitar, será considerado que a cada 40
