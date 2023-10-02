@@ -1,4 +1,4 @@
-<p align="center">
+<p align="center", style="font-size: large; font-weight: bold">
 Algoritmos e Estruturas de Dados I <br> 
 Trabalho 2 – Geração Automática de Índice Remissivo
 </p>
