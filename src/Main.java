@@ -1,45 +1,70 @@
+import java.util.ArrayList;
+
 /**
  * Classe que inicializa a execução da aplicacao.
  * @author Isabel H. Manssour
  */
 public class Main {
     public static void main(String[] args) {
-        
-    int nLinha = 0;
-    int nPagina = 0;
-    
-    ArquivoTexto arquivo = new ArquivoTexto(); // objeto que gerencia o arquivo
-    LinhaTexto linha = new LinhaTexto(); // objeto que gerencia uma linha
-    String l;
 
-    arquivo.open("ArquivoExemplo.txt");
-    
-    do  // laco que passa em cada linha do arquivo
-    {
-        l = arquivo.getNextLine();
-        if (l==null) // acabou o arquivo?
-           break;
-        nLinha++; // conta mais uma linha lida do arquivo
-        if (nLinha == 40) // chegou ao fim da pagina?
-        {
-            nLinha = 0;
-            nPagina++;
-        }
-        System.out.println("Linha " + nLinha + ":");
+        DoubleLinkedListOfStopWords stopWords = new DoubleLinkedListOfStopWords();
+        ArrayList<Paginas> paginas = new ArrayList<>();
+        ArquivoTexto arquivo = new ArquivoTexto(); // objeto que gerencia o arquivo
+        LinhaTexto linha = new LinhaTexto(); // objeto que gerencia uma linha
+        String l;
 
-        linha.setLine(l); // define o texto da linha
-        do // laco que passa em cada palavra de uma linha
-        {
-            String palavra = linha.getNextWord(); // obtem a proxima palavra da linha
-            if (palavra == null)// acabou a linha
+        arquivo.open("src/StopWords-EN.txt");
+        do{
+            //Salvando as stop words na lista para consulta posteriormente
+            l = arquivo.getNextLine();
+            if(l == null) break;
+            stopWords.add(l);
+        }while (true);
+        arquivo.close();
+
+        int nLinha = 0;
+        int nPagina = 0;
+        Paginas pagina = new Paginas(nPagina);
+
+        arquivo.open("src/Livros/alice.txt");
+
+        do{
+            l = arquivo.getNextLine();
+            if (l==null)
+               break;
+            nLinha++;
+            if (nLinha == 40)
             {
-                break;
+                paginas.add(pagina);
+                nLinha = 0;
+                nPagina++;
+                pagina = new Paginas(nPagina);
             }
-            System.out.println("-" + palavra + "-");
-         } while (true);
+            linha.setLine(l);
+            do
+            {
+                String palavra = linha.getNextWord();
+                if (palavra == null)
+                {
+                    break;
+                }
+                palavra = palavra.toLowerCase();
+                if (!stopWords.contains(palavra))
+                {
+                    if(!pagina.contains(palavra)) {
 
-    } while (true);
-    
-    arquivo.close();        
+                        palavra = palavra.replaceAll("[^a-zA-Z0-9]", "");
+                        if(!palavra.equals("") || palavra.equals(" ")) {
+                            pagina.addPalavra(palavra);
+                        }
+                    }
+                }
+             } while (true);
+        } while (true);
+        System.out.println("Numero de paginas: " + paginas.size());
+        for(int i = 0; i < paginas.size(); i++){
+            System.out.println("Conteúdo da pagina " + i + ": " + paginas.get(i).toString());
+        }
+        arquivo.close();
     }
 }
