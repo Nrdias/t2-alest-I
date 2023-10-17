@@ -26,11 +26,11 @@ public class LinhaTexto {
      * @return a palavra, ou null caso nao tenha mais palavras.
      */
     public String getNextWord() {
-      String pal = null;
-      if (contPalavras < palavras.length) {
-          pal = palavras[contPalavras];
-          contPalavras++;
-      }
-      return pal;
+        String pal = null;
+        if (contPalavras < palavras.length) {
+            pal = palavras[contPalavras];
+            contPalavras++;
+        }
+        return pal;
     }
 }
