@@ -16,12 +16,14 @@ public class ArquivoTexto {
     /*
     * Abre o arquivo que contém o texto
     */
-    public void open(String nome){
+    public boolean open(String nome){
         Path path1 = Paths.get(nome);
         try {
            reader = Files.newBufferedReader(path1, Charset.defaultCharset());
+              return true;
         } catch (IOException e) {
-            System.err.format("Erro na leitura do arquivo: ", e);
+            System.err.format("Erro na leitura do arquivo. \nInforme novamente o nome: ", e);
+            return false;
         }    
     }
     

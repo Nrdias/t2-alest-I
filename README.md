@@ -3,7 +3,7 @@ Algoritmos e Estruturas de Dados I <br>
 Trabalho 2 – Geração Automática de Índice Remissivo
 </p>
 
-## Descrição:
+## Descrição: 
 
 Este trabalho **deve ser feito em dupla ou individualmente** e consiste no desenvolvimento de uma solução para
 geração automática de índice remissivo. Um índice remissivo indica em quais páginas uma determinada palavra está.<br><br>
