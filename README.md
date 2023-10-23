@@ -12,7 +12,7 @@ texto em estruturas encadeadas para gerar o índice remissivo. A figura a seguir
 representação: as palavras estão na lista vertical em ordem alfabética crescente e à cada uma delas está associada
 uma lista das páginas onde ocorrem.
 <p align="center">
-<img src="src/imgs/img.png">
+<img src="imgs/img.png">
 </p>
 
 Ao final do processamento o programa deverá **apresentar a lista de palavras** do texto ordenadas em ordem alfabética
