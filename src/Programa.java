@@ -54,17 +54,33 @@ public class Programa {
                             """);
                     return;
                 case 1:
+                    if(palavras.isEmpty()){
+                        System.out.println("Não há palavras ou não foi possível ler o arquivo");
+                        break;
+                    }
                     System.out.println(palavras);
                     break;
                 case 2:
                     System.out.println("Digite a palavra: ");
                     String str = in.nextLine();
+                    if(!palavras.contains(str)){
+                        System.out.println("Palavra não encontrada!");
+                        break;
+                    }
                     System.out.println(str + palavras.getOcorrencias(str));
                     break;
                 case 3:
+                    if(palavras.isEmpty()){
+                        System.out.println("Não há palavras ou não foi possível ler o arquivo");
+                        break;
+                    }
                     System.out.println(palavras.palavraComMaiorOcorrencia());
                     break;
                 case 4:
+                    if(palavras.isEmpty()){
+                        System.out.println("Não há palavras ou não foi possível ler o arquivo");
+                        break;
+                    }
                     System.out.println("Percentual de stop words no texto: " + (numeroDeStopWords*100)/(palavrasNoTexto) + "%");
                     break;
                 default:
@@ -133,6 +149,7 @@ public class Programa {
                     break;
                 }
                 palavrasNoTexto++;
+                str = str.toLowerCase();
                 str = str.replaceAll("[^a-zZ-Z1-9 ]", "");
 
                 if(str.isEmpty() || str.equals(" ")){
